@@ -1,0 +1,6 @@
+framework module Pods_BellyFundTests {
+  umbrella header "Pods-BellyFundTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

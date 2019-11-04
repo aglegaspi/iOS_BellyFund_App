@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		57E5400DFA8F47449A985BFA /* Pods_BellyFund.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED9A0DEC249DA699BCD3A0E /* Pods_BellyFund.framework */; };
+		D1A1902C5471990F849C8275 /* Pods_BellyFundTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92C6A1BA7DB98A7171D1C44 /* Pods_BellyFundTests.framework */; };
+		ECBE4C922370CD7A00F805C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE4C912370CD7A00F805C1 /* AppDelegate.swift */; };
+		ECBE4C942370CD7A00F805C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE4C932370CD7A00F805C1 /* SceneDelegate.swift */; };
+		ECBE4C962370CD7A00F805C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE4C952370CD7A00F805C1 /* ViewController.swift */; };
+		ECBE4C992370CD7A00F805C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECBE4C972370CD7A00F805C1 /* Main.storyboard */; };
+		ECBE4C9B2370CD7D00F805C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECBE4C9A2370CD7D00F805C1 /* Assets.xcassets */; };
+		ECBE4C9E2370CD7D00F805C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECBE4C9C2370CD7D00F805C1 /* LaunchScreen.storyboard */; };
+		ECBE4CA92370CD7D00F805C1 /* BellyFundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE4CA82370CD7D00F805C1 /* BellyFundTests.swift */; };
+		ECBE4CB42370CF2500F805C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECBE4CB32370CF2500F805C1 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ECBE4CA52370CD7D00F805C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECBE4C862370CD7A00F805C1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECBE4C8D2370CD7A00F805C1;
+			remoteInfo = BellyFund;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7B58EE86CBEDA5FE9209E4BF /* Pods-BellyFund.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BellyFund.release.xcconfig"; path = "Target Support Files/Pods-BellyFund/Pods-BellyFund.release.xcconfig"; sourceTree = "<group>"; };
+		892641BBE13EFEEAF91BB8CC /* Pods-BellyFundTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BellyFundTests.release.xcconfig"; path = "Target Support Files/Pods-BellyFundTests/Pods-BellyFundTests.release.xcconfig"; sourceTree = "<group>"; };
+		A92C6A1BA7DB98A7171D1C44 /* Pods_BellyFundTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BellyFundTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AED9A0DEC249DA699BCD3A0E /* Pods_BellyFund.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BellyFund.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFFF7CFBEF474129D3A421B9 /* Pods-BellyFundTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BellyFundTests.debug.xcconfig"; path = "Target Support Files/Pods-BellyFundTests/Pods-BellyFundTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ECBE4C8E2370CD7A00F805C1 /* BellyFund.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BellyFund.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECBE4C912370CD7A00F805C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ECBE4C932370CD7A00F805C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		ECBE4C952370CD7A00F805C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ECBE4C982370CD7A00F805C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ECBE4C9A2370CD7D00F805C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ECBE4C9D2370CD7D00F805C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ECBE4C9F2370CD7D00F805C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECBE4CA42370CD7D00F805C1 /* BellyFundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BellyFundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECBE4CA82370CD7D00F805C1 /* BellyFundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellyFundTests.swift; sourceTree = "<group>"; };
+		ECBE4CAA2370CD7D00F805C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECBE4CB32370CF2500F805C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FDF4E622FAB041B7F445087F /* Pods-BellyFund.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BellyFund.debug.xcconfig"; path = "Target Support Files/Pods-BellyFund/Pods-BellyFund.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECBE4C8B2370CD7A00F805C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57E5400DFA8F47449A985BFA /* Pods_BellyFund.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECBE4CA12370CD7D00F805C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1A1902C5471990F849C8275 /* Pods_BellyFundTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84FB943F7443EDE71814ED97 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FDF4E622FAB041B7F445087F /* Pods-BellyFund.debug.xcconfig */,
+				7B58EE86CBEDA5FE9209E4BF /* Pods-BellyFund.release.xcconfig */,
+				DFFF7CFBEF474129D3A421B9 /* Pods-BellyFundTests.debug.xcconfig */,
+				892641BBE13EFEEAF91BB8CC /* Pods-BellyFundTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CCE2BAFE772CFB95ED5258F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AED9A0DEC249DA699BCD3A0E /* Pods_BellyFund.framework */,
+				A92C6A1BA7DB98A7171D1C44 /* Pods_BellyFundTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECBE4C852370CD7A00F805C1 = {
+			isa = PBXGroup;
+			children = (
+				ECBE4C902370CD7A00F805C1 /* BellyFund */,
+				ECBE4CA72370CD7D00F805C1 /* BellyFundTests */,
+				ECBE4C8F2370CD7A00F805C1 /* Products */,
+				84FB943F7443EDE71814ED97 /* Pods */,
+				CCE2BAFE772CFB95ED5258F9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		ECBE4C8F2370CD7A00F805C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECBE4C8E2370CD7A00F805C1 /* BellyFund.app */,
+				ECBE4CA42370CD7D00F805C1 /* BellyFundTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECBE4C902370CD7A00F805C1 /* BellyFund */ = {
+			isa = PBXGroup;
+			children = (
+				ECBE4C912370CD7A00F805C1 /* AppDelegate.swift */,
+				ECBE4C932370CD7A00F805C1 /* SceneDelegate.swift */,
+				ECBE4C952370CD7A00F805C1 /* ViewController.swift */,
+				ECBE4C972370CD7A00F805C1 /* Main.storyboard */,
+				ECBE4C9A2370CD7D00F805C1 /* Assets.xcassets */,
+				ECBE4C9C2370CD7D00F805C1 /* LaunchScreen.storyboard */,
+				ECBE4C9F2370CD7D00F805C1 /* Info.plist */,
+				ECBE4CB32370CF2500F805C1 /* GoogleService-Info.plist */,
+			);
+			path = BellyFund;
+			sourceTree = "<group>";
+		};
+		ECBE4CA72370CD7D00F805C1 /* BellyFundTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECBE4CA82370CD7D00F805C1 /* BellyFundTests.swift */,
+				ECBE4CAA2370CD7D00F805C1 /* Info.plist */,
+			);
+			path = BellyFundTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECBE4C8D2370CD7A00F805C1 /* BellyFund */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECBE4CAD2370CD7D00F805C1 /* Build configuration list for PBXNativeTarget "BellyFund" */;
+			buildPhases = (
+				62F2BD5735B12B3AD0C078EB /* [CP] Check Pods Manifest.lock */,
+				ECBE4C8A2370CD7A00F805C1 /* Sources */,
+				ECBE4C8B2370CD7A00F805C1 /* Frameworks */,
+				ECBE4C8C2370CD7A00F805C1 /* Resources */,
+				B613A8EECDBC8C849FCE0684 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BellyFund;
+			productName = BellyFund;
+			productReference = ECBE4C8E2370CD7A00F805C1 /* BellyFund.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ECBE4CA32370CD7D00F805C1 /* BellyFundTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECBE4CB02370CD7D00F805C1 /* Build configuration list for PBXNativeTarget "BellyFundTests" */;
+			buildPhases = (
+				8638375B9479DC5B3640872B /* [CP] Check Pods Manifest.lock */,
+				ECBE4CA02370CD7D00F805C1 /* Sources */,
+				ECBE4CA12370CD7D00F805C1 /* Frameworks */,
+				ECBE4CA22370CD7D00F805C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECBE4CA62370CD7D00F805C1 /* PBXTargetDependency */,
+			);
+			name = BellyFundTests;
+			productName = BellyFundTests;
+			productReference = ECBE4CA42370CD7D00F805C1 /* BellyFundTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECBE4C862370CD7A00F805C1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = aglegaspi;
+				TargetAttributes = {
+					ECBE4C8D2370CD7A00F805C1 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					ECBE4CA32370CD7D00F805C1 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = ECBE4C8D2370CD7A00F805C1;
+					};
+				};
+			};
+			buildConfigurationList = ECBE4C892370CD7A00F805C1 /* Build configuration list for PBXProject "BellyFund" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ECBE4C852370CD7A00F805C1;
+			productRefGroup = ECBE4C8F2370CD7A00F805C1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECBE4C8D2370CD7A00F805C1 /* BellyFund */,
+				ECBE4CA32370CD7D00F805C1 /* BellyFundTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECBE4C8C2370CD7A00F805C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECBE4C9E2370CD7D00F805C1 /* LaunchScreen.storyboard in Resources */,
+				ECBE4CB42370CF2500F805C1 /* GoogleService-Info.plist in Resources */,
+				ECBE4C9B2370CD7D00F805C1 /* Assets.xcassets in Resources */,
+				ECBE4C992370CD7A00F805C1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECBE4CA22370CD7D00F805C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		62F2BD5735B12B3AD0C078EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BellyFund-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8638375B9479DC5B3640872B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BellyFundTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B613A8EECDBC8C849FCE0684 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BellyFund/Pods-BellyFund-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BellyFund/Pods-BellyFund-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BellyFund/Pods-BellyFund-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECBE4C8A2370CD7A00F805C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECBE4C962370CD7A00F805C1 /* ViewController.swift in Sources */,
+				ECBE4C922370CD7A00F805C1 /* AppDelegate.swift in Sources */,
+				ECBE4C942370CD7A00F805C1 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECBE4CA02370CD7D00F805C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECBE4CA92370CD7D00F805C1 /* BellyFundTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ECBE4CA62370CD7D00F805C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECBE4C8D2370CD7A00F805C1 /* BellyFund */;
+			targetProxy = ECBE4CA52370CD7D00F805C1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ECBE4C972370CD7A00F805C1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECBE4C982370CD7A00F805C1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ECBE4C9C2370CD7D00F805C1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECBE4C9D2370CD7D00F805C1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ECBE4CAB2370CD7D00F805C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ECBE4CAC2370CD7D00F805C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECBE4CAE2370CD7D00F805C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDF4E622FAB041B7F445087F /* Pods-BellyFund.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7QAYF98LA4;
+				INFOPLIST_FILE = BellyFund/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = aglegaspi.BellyFund;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ECBE4CAF2370CD7D00F805C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B58EE86CBEDA5FE9209E4BF /* Pods-BellyFund.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7QAYF98LA4;
+				INFOPLIST_FILE = BellyFund/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = aglegaspi.BellyFund;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		ECBE4CB12370CD7D00F805C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFFF7CFBEF474129D3A421B9 /* Pods-BellyFundTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7QAYF98LA4;
+				INFOPLIST_FILE = BellyFundTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = aglegaspi.BellyFundTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BellyFund.app/BellyFund";
+			};
+			name = Debug;
+		};
+		ECBE4CB22370CD7D00F805C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 892641BBE13EFEEAF91BB8CC /* Pods-BellyFundTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7QAYF98LA4;
+				INFOPLIST_FILE = BellyFundTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = aglegaspi.BellyFundTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BellyFund.app/BellyFund";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECBE4C892370CD7A00F805C1 /* Build configuration list for PBXProject "BellyFund" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECBE4CAB2370CD7D00F805C1 /* Debug */,
+				ECBE4CAC2370CD7D00F805C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECBE4CAD2370CD7D00F805C1 /* Build configuration list for PBXNativeTarget "BellyFund" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECBE4CAE2370CD7D00F805C1 /* Debug */,
+				ECBE4CAF2370CD7D00F805C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECBE4CB02370CD7D00F805C1 /* Build configuration list for PBXNativeTarget "BellyFundTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECBE4CB12370CD7D00F805C1 /* Debug */,
+				ECBE4CB22370CD7D00F805C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECBE4C862370CD7A00F805C1 /* Project object */;
+}
