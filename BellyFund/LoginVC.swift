@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//TO-DO: IMPORT WHICH FIREBASE?
+import Firebase
 
 class LoginVC: UIViewController {
     
@@ -72,8 +72,18 @@ class LoginVC: UIViewController {
         ])
     }
     
-    
-    
-
 }
 
+
+extension LoginVC: UITextFieldDelegate {
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    if textField == emailTextField {
+      passwordTextField.becomeFirstResponder()
+    }
+    if textField == passwordTextField {
+      textField.resignFirstResponder()
+    }
+    return true
+  }
+}
