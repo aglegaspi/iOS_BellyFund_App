@@ -12,6 +12,8 @@ pod 'Firebase/Analytics'
 # add pods for any other desired Firebase products
 # https://firebase.google.com/docs/ios/setup#available-pods
 
+pod 'Firebase/Auth'
+
   target 'BellyFundTests' do
     inherit! :search_paths
     # Pods for testing
