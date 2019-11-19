@@ -33,7 +33,7 @@ class LoginVC: UIViewController {
     lazy var passwordTextField: UITextField = {
         var tf = UITextField()
         tf.backgroundColor = .white
-        tf.placeholder = "passsord"
+        tf.placeholder = "password"
         tf.autocapitalizationType = .none
         tf.layer.cornerRadius = 10
         return tf
@@ -42,6 +42,15 @@ class LoginVC: UIViewController {
     lazy var submitButton: UIButton = {
         var button = UIButton()
         button.setTitle("Log In", for: .normal)
+        return button
+    }()
+    
+    lazy var signUpButton: UIButton = {
+        var button = UIButton()
+        button.setTitle("DON'T HAVE AN ACCOUNT? SIGN UP HERE!", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Avenir-LightOblique", size: 12.0)!
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(signUpPressed), for: .touchDown)
         return button
     }()
     
@@ -60,6 +69,7 @@ class LoginVC: UIViewController {
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(submitButton)
+        view.addSubview(signUpButton)
     }
     
     private func addConstraints() {
@@ -67,6 +77,7 @@ class LoginVC: UIViewController {
         constrainEmailTextField()
         constrainPasswordTextField()
         constrainLoginButton()
+        constrainSignUpLabel()
     }
     
     private func addPadding() {
@@ -127,6 +138,16 @@ class LoginVC: UIViewController {
         ])
     }
     
+    private func constrainSignUpLabel() {
+        signUpButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            signUpButton.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: 20),
+            signUpButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            signUpButton.widthAnchor.constraint(equalToConstant: 300),
+            signUpButton.heightAnchor.constraint(equalToConstant: 20)
+        ])
+    }
+    
     //MARK: OBJC FUNCTIONS
     @objc func loginButtonPressed() {
         guard let email = emailTextField.text, let password = passwordTextField.text else {
@@ -147,6 +168,12 @@ class LoginVC: UIViewController {
         FirebaseAuthService.manager.loginUser(email: email.lowercased(), password: password) { (result) in
             self.handleLoginResponse(with: result)
         }
+    }
+    
+    @objc func signUpPressed() {
+        let signupVC = SignUpVC()
+        signupVC.modalPresentationStyle = .formSheet
+        present(signupVC, animated: true, completion: nil)
     }
     
     private func handleLoginResponse(with result: Result<(), Error>) {
