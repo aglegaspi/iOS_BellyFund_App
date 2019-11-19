@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>118416293525-l0c0mumh07rtci6f3hvdts072oldc3gp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.118416293525-l0c0mumh07rtci6f3hvdts072oldc3gp</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBZ7hhiBCJ1woOuXKcIdvUhT6ndFS4m470</string>
+	<key>GCM_SENDER_ID</key>
+	<string>118416293525</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>aglegaspi.BellyFund</string>
+	<key>PROJECT_ID</key>
+	<string>bellyfund</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bellyfund.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:118416293525:ios:94e92f2f958e9ecf5c259c</string>
+	<key>DATABASE_URL</key>
+	<string>https://bellyfund.firebaseio.com</string>
+</dict>
+</plist>
