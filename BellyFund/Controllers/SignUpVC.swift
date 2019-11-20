@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignUpVC: UIViewController {
     
@@ -165,17 +166,27 @@ class SignUpVC: UIViewController {
             return
         }
         
-        FirebaseAuthService.manager.loginUser(email: email.lowercased(), password: password) { (result) in
-            self.handleLoginResponse(with: result)
+        FirebaseAuthService.manager.createNewUser(email: email.lowercased(), password: password) { [weak self] (result) in
+            self?.handleCreateAccountResponse(with: result)
         }
     }
     
-    private func handleLoginResponse(with result: Result<(), Error>) {
+    private func handleCreateAccountResponse(with result: Result<User, Error>) {
+        DispatchQueue.main.async { [weak self] in
+            switch result {
+            case .success(let user):
+                FirestoreService.manager.createAppUser(user: AppUser(from: user)) { [weak self] newResult in
+                    self?.handleCreatedUserInFirestore(result: newResult)
+                }
+            case .failure(let error):
+                self?.showAlert(with: "Error creating user", and: "An error occured while creating new account \(error)")
+            }
+        }
+    }
+    
+    private func handleCreatedUserInFirestore(result: Result<(), Error>) {
         switch result {
-        case .failure(let error):
-            showAlert(with: "Error", and: "Could not log in. Error: \(error)")
         case .success:
-            
             guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                 let sceneDelegate = windowScene.delegate as? SceneDelegate, let window = sceneDelegate.window
                 else {
@@ -189,12 +200,14 @@ class SignUpVC: UIViewController {
                     window.rootViewController = ViewController()
                 } else {
                     window.rootViewController = {
-                    let mainVC = ViewController()
-                    //profileSetupVC.settingFromLogin = true
-                    return mainVC
+                        let mainVC = ViewController()
+                        //profileSetupVC.settingFromLogin = true
+                        return mainVC
                     }()
                 }
             }, completion: nil)
+        case .failure(let error):
+            self.showAlert(with: "Error creating user", and: "An error occured while creating new account \(error)")
         }
     }
     
