@@ -99,6 +99,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		ECBA8CAB2385EC2C0045782C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECBE4CB62371DD9100F805C1 /* LoginVC.swift */,
+				ECBA8CA9238488AC0045782C /* SignUpVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		ECBE4C852370CD7A00F805C1 = {
 			isa = PBXGroup;
 			children = (
@@ -126,8 +135,7 @@
 				ECBE4CB52371C70B00F805C1 /* BellyFund.entitlements */,
 				ECBE4C912370CD7A00F805C1 /* AppDelegate.swift */,
 				ECBE4C932370CD7A00F805C1 /* SceneDelegate.swift */,
-				ECBE4CB62371DD9100F805C1 /* LoginVC.swift */,
-				ECBA8CA9238488AC0045782C /* SignUpVC.swift */,
+				ECBA8CAB2385EC2C0045782C /* Controllers */,
 				ECBA8CA7238353220045782C /* FirebaseAuthService.swift */,
 				ECBA8CA52383470B0045782C /* Validations.swift */,
 				ECBE4C952370CD7A00F805C1 /* ViewController.swift */,

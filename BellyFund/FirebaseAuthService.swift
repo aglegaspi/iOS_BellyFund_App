@@ -30,6 +30,7 @@ class FirebaseAuthService {
     
     func updateUserFields(userName: String? = nil,photoURL: URL? = nil, completion: @escaping (Result<(),Error>) -> ()){
         let changeRequest = auth.currentUser?.createProfileChangeRequest()
+        
         if let userName = userName {
             changeRequest?.displayName = userName
         }
@@ -47,6 +48,7 @@ class FirebaseAuthService {
     
     func loginUser(email: String, password: String, completion: @escaping (Result<(), Error>) -> ()) {
         auth.signIn(withEmail: email, password: password) { (result, error) in
+            
             if let user = result?.user {
                 completion(.success(()))
             } else if let error = error {

@@ -42,6 +42,7 @@ class LoginVC: UIViewController {
     lazy var submitButton: UIButton = {
         var button = UIButton()
         button.setTitle("Log In", for: .normal)
+        button.addTarget(self, action: #selector(loginButtonPressed), for: .touchDown)
         return button
     }()
     
@@ -194,11 +195,11 @@ class LoginVC: UIViewController {
                 if FirebaseAuthService.manager.currentUser?.photoURL != nil {
                     window.rootViewController = ViewController()
                 } else {
-                    //window.rootViewController = {
-                        //let profileSetupVC = ProfileEditViewController()
+                    window.rootViewController = {
+                        let mainVC = ViewController()
                         //profileSetupVC.settingFromLogin = true
-                        //return profileSetupVC
-                    //}()
+                        return mainVC
+                    }()
                 }
             }, completion: nil)
         }
