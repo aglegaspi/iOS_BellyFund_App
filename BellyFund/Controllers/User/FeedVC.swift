@@ -10,9 +10,10 @@ import UIKit
 
 class FeedVC: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = UIColor(red: 0.647, green: 0.286, blue: 0.198, alpha: 1.0)
     }
 
 
