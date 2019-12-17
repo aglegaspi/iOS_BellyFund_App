@@ -9,6 +9,7 @@ target 'BellyFund' do
 
 	pod 'Firebase/Auth'
 	pod 'Firebase/Firestore'
+	pod 'Firebase/Storage'
 
 
   target 'BellyFundTests' do

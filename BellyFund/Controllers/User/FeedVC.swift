@@ -14,7 +14,7 @@ class FeedVC: UIViewController {
     var posts = [Item]() { didSet { collectionView.reloadData() } }
     
     //MARK: VIEWS
-    var projectLabel: UILabel = {
+    var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "BellyFund"
         label.font = UIFont.systemFont(ofSize: 40, weight: .regular)
@@ -54,20 +54,20 @@ class FeedVC: UIViewController {
     }
     
     private func constrainLabel() {
-        view.addSubview(projectLabel)
-        projectLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(nameLabel)
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            projectLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            projectLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            projectLabel.heightAnchor.constraint(equalToConstant: 50),
-            projectLabel.widthAnchor.constraint(equalTo: view.widthAnchor)])
+            nameLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            nameLabel.heightAnchor.constraint(equalToConstant: 50),
+            nameLabel.widthAnchor.constraint(equalTo: view.widthAnchor)])
     }
     
     private func constrainCollectionView() {
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: projectLabel.bottomAnchor, constant: 30),
+            collectionView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 30),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)])

@@ -23,7 +23,6 @@
 		ECBA8CAF2385F00A0045782C /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBA8CAE2385F00A0045782C /* AppUser.swift */; };
 		ECBE4C922370CD7A00F805C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE4C912370CD7A00F805C1 /* AppDelegate.swift */; };
 		ECBE4C942370CD7A00F805C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE4C932370CD7A00F805C1 /* SceneDelegate.swift */; };
-		ECBE4C962370CD7A00F805C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE4C952370CD7A00F805C1 /* ViewController.swift */; };
 		ECBE4C9B2370CD7D00F805C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECBE4C9A2370CD7D00F805C1 /* Assets.xcassets */; };
 		ECBE4C9E2370CD7D00F805C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECBE4C9C2370CD7D00F805C1 /* LaunchScreen.storyboard */; };
 		ECBE4CA92370CD7D00F805C1 /* BellyFundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE4CA82370CD7D00F805C1 /* BellyFundTests.swift */; };
@@ -62,7 +61,6 @@
 		ECBE4C8E2370CD7A00F805C1 /* BellyFund.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BellyFund.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECBE4C912370CD7A00F805C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECBE4C932370CD7A00F805C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ECBE4C952370CD7A00F805C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ECBE4C9A2370CD7D00F805C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECBE4C9D2370CD7D00F805C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECBE4C9F2370CD7D00F805C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 				EC320E2C23A7E1DD00AA10B6 /* ProfileVC.swift */,
 				EC320E2623A7E17200AA10B6 /* FeedVC.swift */,
 				EC320E3023A8586000AA10B6 /* FeedCell.swift */,
-				ECBE4C952370CD7A00F805C1 /* ViewController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -378,7 +375,6 @@
 				EC320E2723A7E17200AA10B6 /* FeedVC.swift in Sources */,
 				ECBA8CAF2385F00A0045782C /* AppUser.swift in Sources */,
 				EC320E2F23A8164800AA10B6 /* Item.swift in Sources */,
-				ECBE4C962370CD7A00F805C1 /* ViewController.swift in Sources */,
 				ECBE4C922370CD7A00F805C1 /* AppDelegate.swift in Sources */,
 				EC320E2B23A7E1CB00AA10B6 /* PostVC.swift in Sources */,
 				ECBE4CB72371DD9100F805C1 /* LoginVC.swift in Sources */,
