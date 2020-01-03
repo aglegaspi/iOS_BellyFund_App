@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		57E5400DFA8F47449A985BFA /* Pods_BellyFund.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED9A0DEC249DA699BCD3A0E /* Pods_BellyFund.framework */; };
 		D1A1902C5471990F849C8275 /* Pods_BellyFundTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92C6A1BA7DB98A7171D1C44 /* Pods_BellyFundTests.framework */; };
+		EC17D60623A99C89000C0426 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17D60523A99C89000C0426 /* ImageHelper.swift */; };
+		EC17D60923A99D14000C0426 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC17D60823A99D14000C0426 /* AppError.swift */; };
 		EC320E2423A7E12300AA10B6 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC320E2323A7E12300AA10B6 /* MainTBC.swift */; };
 		EC320E2723A7E17200AA10B6 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC320E2623A7E17200AA10B6 /* FeedVC.swift */; };
 		EC320E2B23A7E1CB00AA10B6 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC320E2A23A7E1CB00AA10B6 /* PostVC.swift */; };
@@ -46,6 +48,8 @@
 		A92C6A1BA7DB98A7171D1C44 /* Pods_BellyFundTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BellyFundTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED9A0DEC249DA699BCD3A0E /* Pods_BellyFund.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BellyFund.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFFF7CFBEF474129D3A421B9 /* Pods-BellyFundTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BellyFundTests.debug.xcconfig"; path = "Target Support Files/Pods-BellyFundTests/Pods-BellyFundTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC17D60523A99C89000C0426 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		EC17D60823A99D14000C0426 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		EC320E2323A7E12300AA10B6 /* MainTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
 		EC320E2623A7E17200AA10B6 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		EC320E2A23A7E1CB00AA10B6 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
@@ -111,6 +115,24 @@
 				A92C6A1BA7DB98A7171D1C44 /* Pods_BellyFundTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC17D60423A99C71000C0426 /* FIrebase */ = {
+			isa = PBXGroup;
+			children = (
+				ECBA8CA7238353220045782C /* FirebaseAuthService.swift */,
+				ECBA8CAC2385EE020045782C /* FirestoreService.swift */,
+			);
+			path = FIrebase;
+			sourceTree = "<group>";
+		};
+		EC17D60723A99CFB000C0426 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				EC17D60523A99C89000C0426 /* ImageHelper.swift */,
+				EC17D60823A99D14000C0426 /* AppError.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		EC320E2523A7E14800AA10B6 /* Models */ = {
@@ -179,9 +201,9 @@
 				ECBE4CB52371C70B00F805C1 /* BellyFund.entitlements */,
 				ECBE4C912370CD7A00F805C1 /* AppDelegate.swift */,
 				ECBE4C932370CD7A00F805C1 /* SceneDelegate.swift */,
+				EC17D60723A99CFB000C0426 /* Networking */,
 				ECBA8CAB2385EC2C0045782C /* Controllers */,
-				ECBA8CA7238353220045782C /* FirebaseAuthService.swift */,
-				ECBA8CAC2385EE020045782C /* FirestoreService.swift */,
+				EC17D60423A99C71000C0426 /* FIrebase */,
 				EC320E2523A7E14800AA10B6 /* Models */,
 				ECBA8CA52383470B0045782C /* Validations.swift */,
 				ECBE4C9A2370CD7D00F805C1 /* Assets.xcassets */,
@@ -374,6 +396,7 @@
 				ECBA8CAA238488AC0045782C /* SignUpVC.swift in Sources */,
 				EC320E2723A7E17200AA10B6 /* FeedVC.swift in Sources */,
 				ECBA8CAF2385F00A0045782C /* AppUser.swift in Sources */,
+				EC17D60923A99D14000C0426 /* AppError.swift in Sources */,
 				EC320E2F23A8164800AA10B6 /* Item.swift in Sources */,
 				ECBE4C922370CD7A00F805C1 /* AppDelegate.swift in Sources */,
 				EC320E2B23A7E1CB00AA10B6 /* PostVC.swift in Sources */,
@@ -381,6 +404,7 @@
 				EC320E2D23A7E1DD00AA10B6 /* ProfileVC.swift in Sources */,
 				ECBE4C942370CD7A00F805C1 /* SceneDelegate.swift in Sources */,
 				EC320E3123A8586000AA10B6 /* FeedCell.swift in Sources */,
+				EC17D60623A99C89000C0426 /* ImageHelper.swift in Sources */,
 				ECBA8CAD2385EE020045782C /* FirestoreService.swift in Sources */,
 				ECBA8CA8238353220045782C /* FirebaseAuthService.swift in Sources */,
 				ECBA8CA62383470B0045782C /* Validations.swift in Sources */,
