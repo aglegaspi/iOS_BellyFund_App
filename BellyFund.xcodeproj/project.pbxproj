@@ -17,6 +17,7 @@
 		EC320E2D23A7E1DD00AA10B6 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC320E2C23A7E1DD00AA10B6 /* ProfileVC.swift */; };
 		EC320E2F23A8164800AA10B6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC320E2E23A8164800AA10B6 /* Item.swift */; };
 		EC320E3123A8586000AA10B6 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC320E3023A8586000AA10B6 /* FeedCell.swift */; };
+		EC3267D323BFD29300D43683 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3267D223BFD29300D43683 /* ShowAlert.swift */; };
 		ECBA8CA423833CEB0045782C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECBA8CA323833CEB0045782C /* GoogleService-Info.plist */; };
 		ECBA8CA62383470B0045782C /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBA8CA52383470B0045782C /* Validations.swift */; };
 		ECBA8CA8238353220045782C /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBA8CA7238353220045782C /* FirebaseAuthService.swift */; };
@@ -56,6 +57,7 @@
 		EC320E2C23A7E1DD00AA10B6 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		EC320E2E23A8164800AA10B6 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		EC320E3023A8586000AA10B6 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		EC3267D223BFD29300D43683 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 		ECBA8CA323833CEB0045782C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ECBA8CA52383470B0045782C /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 		ECBA8CA7238353220045782C /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				ECBA8CAE2385F00A0045782C /* AppUser.swift */,
 				EC320E2E23A8164800AA10B6 /* Item.swift */,
+				EC3267D223BFD29300D43683 /* ShowAlert.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 			files = (
 				EC320E2423A7E12300AA10B6 /* MainTBC.swift in Sources */,
 				ECBA8CAA238488AC0045782C /* SignUpVC.swift in Sources */,
+				EC3267D323BFD29300D43683 /* ShowAlert.swift in Sources */,
 				EC320E2723A7E17200AA10B6 /* FeedVC.swift in Sources */,
 				ECBA8CAF2385F00A0045782C /* AppUser.swift in Sources */,
 				EC17D60923A99D14000C0426 /* AppError.swift in Sources */,
