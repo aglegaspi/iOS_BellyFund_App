@@ -18,14 +18,20 @@ class MainTBC: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        feedVC.isNavigationBarHidden = true
-        postVC.isNavigationBarHidden = true
-        profileVC.isNavigationBarHidden = true
+        hideNavBar()
+        
         feedVC.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "list.dash"), tag: 0)
         postVC.tabBarItem = UITabBarItem(title: "Post", image: UIImage(systemName: "plus.circle.fill"), tag: 1)
         profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.square"), tag: 2)
+        
         self.viewControllers = [feedVC, postVC, profileVC]
         self.viewControllers?.forEach({$0.tabBarController?.tabBar.barStyle = .default})
+    }
+    
+    private func hideNavBar() {
+        feedVC.isNavigationBarHidden = true
+        postVC.isNavigationBarHidden = true
+        profileVC.isNavigationBarHidden = true
     }
     
 }
