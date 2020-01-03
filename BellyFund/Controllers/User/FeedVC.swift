@@ -27,7 +27,7 @@ class FeedVC: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let collection = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        collection.backgroundColor = UIColor(red: 0.647, green: 0.286, blue: 0.198, alpha: 1.0)
+        collection.backgroundColor = UIColor(red: 0.147, green: 0.986, blue: 0.798, alpha: 1.0)
         collection.register(FeedCell.self, forCellWithReuseIdentifier: "FeedCell")
         return collection
     }()
@@ -35,7 +35,7 @@ class FeedVC: UIViewController {
     //MARK: LIFECYCLES
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0.647, green: 0.286, blue: 0.198, alpha: 1.0)
+        view.backgroundColor = UIColor(red: 0.147, green: 0.986, blue: 0.798, alpha: 1.0)
         setUpConstraints()
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -97,7 +97,6 @@ extension FeedVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeedCell", for: indexPath) as? FeedCell else { return UICollectionViewCell() }
 //        let imageURL = post.photoUrl ?? ""
 //
-//
 //        if let image = ImageHelper.shared.image(forKey: imageURL as NSString) {
 //            cell.postImage.image = image
 //        } else {
@@ -110,8 +109,6 @@ extension FeedVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
 //                }
 //            }
 //        }
-        
-        
         return cell
     }
     
