@@ -10,6 +10,7 @@ target 'BellyFund' do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Firestore'
 	pod 'Firebase/Storage'
+	pod 'UITextView+Placeholder'
 
 
   target 'BellyFundTests' do
