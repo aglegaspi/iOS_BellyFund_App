@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Photos
 
 class PostVC: UIViewController {
     
     var nameOfItemTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter User Name"
+        textField.placeholder = "Name of Item"
         textField.autocorrectionType = .no
         textField.textAlignment = .left
-        textField.backgroundColor = .init(white: 1.0, alpha: 0.2)
+        textField.backgroundColor = .white
         textField.textColor = .black
         textField.font?.withSize(30)
         textField.borderStyle = .roundedRect
@@ -55,7 +57,7 @@ class PostVC: UIViewController {
         NSLayoutConstraint.activate([
             nameOfItemTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
             nameOfItemTextField.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            nameOfItemTextField.widthAnchor.constraint(equalToConstant: view.frame.maxX / 2)
+            nameOfItemTextField.widthAnchor.constraint(equalToConstant: view.frame.maxX / 1.5)
         ])
     }
     
@@ -64,8 +66,8 @@ class PostVC: UIViewController {
         NSLayoutConstraint.activate([
             descriptionOfItemTextView.topAnchor.constraint(equalTo: nameOfItemTextField.bottomAnchor, constant: 10),
             descriptionOfItemTextView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            descriptionOfItemTextView.widthAnchor.constraint(equalToConstant: view.frame.maxX / 2),
-            descriptionOfItemTextView.heightAnchor.constraint(equalToConstant: 300)
+            descriptionOfItemTextView.widthAnchor.constraint(equalToConstant: view.frame.maxX / 1.5),
+            descriptionOfItemTextView.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
 
@@ -96,6 +98,29 @@ extension PostVC: UITextFieldDelegate {
 }
 
 extension PostVC: UITextViewDelegate {
-    
-    
+}
+
+extension PostVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        
+//        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//            guard let image = info[.editedImage] as? UIImage else {
+//                present(ShowAlert.showAlert(with: "Error", and: "Couldn't get image"), animated: true, completion: nil)
+//                return
+//            }
+//            self.image = image
+//
+//            guard let imageData = image.jpegData(compressionQuality: 0.4) else {
+//                present(ShowAlert.showAlert(with: "Error", and: "Could not compress image"), animated: true, completion: nil)
+//                return
+//            }
+//            FirebaseStorageService.profileManager.storeImage(image: imageData, completion: { [weak self] (result) in
+//                switch result{
+//                case .success(let url): return (self?.imageURL = url)!
+//                case .failure(let error): print(error)
+//                }
+//            })
+//
+//            dismiss(animated: true, completion: nil)
+//        }
+//    }
 }
