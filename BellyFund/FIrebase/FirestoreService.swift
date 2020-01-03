@@ -12,7 +12,6 @@ import FirebaseFirestore
 fileprivate enum FireStoreCollections: String {
     case users
     case posts
-    case comments
 }
 
 enum SortingCriteria: String {
@@ -28,10 +27,8 @@ enum SortingCriteria: String {
 
 class FirestoreService {
     static let manager = FirestoreService()
-    
     private let db = Firestore.firestore()
     
-    //MARK: AppUsers
     func createAppUser(user: AppUser, completion: @escaping (Result<(), Error>) -> ()) {
         var fields = user.fieldsDict
         fields["dateCreated"] = Date()
@@ -45,9 +42,7 @@ class FirestoreService {
     }
     
     func updateCurrentUser(userName: String? = nil, photoURL: URL? = nil, completion: @escaping (Result<(), Error>) -> ()){
-        guard let userId = FirebaseAuthService.manager.currentUser?.uid else {
-            //MARK: TODO - handle can't get current user
-            return
+        guard let userId = FirebaseAuthService.manager.currentUser?.uid else { return
         }
         var updateFields = [String:Any]()
         
@@ -59,15 +54,12 @@ class FirestoreService {
             updateFields["photoURL"] = photo.absoluteString
         }
         
-       
-        //PUT request
         db.collection(FireStoreCollections.users.rawValue).document(userId).updateData(updateFields) { (error) in
             if let error = error {
                 completion(.failure(error))
             } else {
                 completion(.success(()))
             }
-            
         }
     }
     
@@ -85,9 +77,6 @@ class FirestoreService {
             }
         }
     }
-    
-  
-   
     
     private init () {}
 }
