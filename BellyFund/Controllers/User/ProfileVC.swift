@@ -12,7 +12,7 @@ class ProfileVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0.147, green: 0.986, blue: 0.798, alpha: 1.0)
+        view.backgroundColor = UIColor(red: 0.647, green: 0.286, blue: 0.198, alpha: 1.0)
     }
 
 }
