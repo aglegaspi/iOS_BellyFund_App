@@ -45,6 +45,14 @@ class PostVC: UIViewController {
         return textView
     }()
     
+    var submitButton: UIButton = {
+        var button = UIButton()
+        button.setTitle("Submit", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(submitButtonClicked), for: .touchDown)
+        return button
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +67,7 @@ class PostVC: UIViewController {
         constrainNameOfItem()
         constrainDescriptionOfItem()
         constrainIngredientsOfItem()
+        constrainSubmitButton()
     }
     
     private func constrainNameOfItem() {
@@ -93,7 +102,20 @@ class PostVC: UIViewController {
         ])
     }
     
+    private func constrainSubmitButton() {
+        view.addSubview(submitButton)
+        submitButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            submitButton.topAnchor.constraint(equalTo: ingredientsOfItemTextView.bottomAnchor, constant: 10),
+            submitButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            submitButton.widthAnchor.constraint(equalToConstant: view.frame.maxX / 1.5),
+            submitButton.heightAnchor.constraint(equalToConstant: 100)
+        ])
+    }
     
+    @objc func submitButtonClicked() {
+        self.present(ShowAlert.prompt(with: "To-Do", and: "add functionality to save to Firebase"), animated: true, completion: nil)
+    }
 }
 
 
@@ -130,14 +152,14 @@ extension PostVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else {
-            present(ShowAlert.showAlert(with: "Error", and: "Couldn't get image"), animated: true, completion: nil)
+            present(ShowAlert.prompt(with: "Error", and: "Couldn't get image"), animated: true, completion: nil)
             return
         }
         //TODO: ADD IMAGE VIEW
         //self.image = image
         
         guard let imageData = image.jpegData(compressionQuality: 0.4) else {
-            present(ShowAlert.showAlert(with: "Error", and: "Could not compress image"), animated: true, completion: nil)
+            present(ShowAlert.prompt(with: "Error", and: "Could not compress image"), animated: true, completion: nil)
             return
         }
         

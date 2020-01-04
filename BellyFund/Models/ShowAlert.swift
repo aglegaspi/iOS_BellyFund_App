@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 struct ShowAlert {
-    static func showAlert(with title: String, and message: String) -> UIAlertController {
+    static func prompt(with title: String, and message: String) -> UIAlertController {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         return alertVC
