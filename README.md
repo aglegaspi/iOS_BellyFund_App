@@ -11,3 +11,8 @@ username: demo@demo.com
 password: demo1234
                     
 
+## FUTURE IMPLIMENTATIONS:
+
+1. Post Items
+2. Vote / Contribute
+3. ApplePay
