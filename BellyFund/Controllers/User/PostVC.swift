@@ -13,6 +13,8 @@ import UITextView_Placeholder
 
 class PostVC: UIViewController {
     
+    var imageToUpload: Data?
+    
     var nameOfItemTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Name of Item"
@@ -160,9 +162,7 @@ class PostVC: UIViewController {
         }
     }
     
-    @objc func submitButtonClicked() {
-        self.present(ShowAlert.prompt(with: "To-Do", and: "add functionality to save to Firebase"), animated: true, completion: nil)
-    }
+    
     
     @objc func imageButtonPressed() {
         switch PHPhotoLibrary.authorizationStatus() {
@@ -170,13 +170,30 @@ class PostVC: UIViewController {
             PHPhotoLibrary.requestAuthorization({[weak self] status in
                 switch status {
                 case .authorized: self?.photoPicker()
-                case .denied: print("Denied photo library permissions")
-                default: print("No usable status")
+                case .denied:
+                    self?.present(ShowAlert.prompt(with: "Access Denied", and: "Denied photo library permissions"), animated: true, completion: nil)
+                default:
+                    self?.present(ShowAlert.prompt(with: "Error", and: "No usable status"), animated: true, completion: nil)
                 }
             })
         default: photoPicker()
         }
     }
+    
+    
+    @objc func submitButtonClicked() {
+        self.present(ShowAlert.prompt(with: "To-Do", and: "add functionality to save to Firebase"), animated: true, completion: nil)
+        
+        //TO-DO: ADD FIREBASE STORAGE SERVICE
+        //FirebaseStorageService.profileManager.storeImage(image: imageData, completion: { [weak self] (result) in
+            //switch result{
+            //case .success(let url): return (self?.imageURL = url)!
+            //case .failure(let error): print(error)
+            //}
+        //})
+    }
+    
+    
 }
 
 
@@ -214,19 +231,7 @@ extension PostVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
         }
         
         self.itemImage.image = image
-        
-        guard let imageData = image.jpegData(compressionQuality: 0.4) else {
-            present(ShowAlert.prompt(with: "Error", and: "Could not compress image"), animated: true, completion: nil)
-            return
-        }
-        
-        //TO-DO: ADD FIREBASE STORAGE SERVICE
-//        FirebaseStorageService.profileManager.storeImage(image: imageData, completion: { [weak self] (result) in
-//            switch result{
-//            case .success(let url): return (self?.imageURL = url)!
-//            case .failure(let error): print(error)
-//            }
-//        })
+        self.imageToUpload = image.jpegData(compressionQuality: 0.4)
         
         dismiss(animated: true, completion: nil)
     }

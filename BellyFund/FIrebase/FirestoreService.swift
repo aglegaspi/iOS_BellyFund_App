@@ -14,6 +14,8 @@ fileprivate enum FireStoreCollections: String {
     case posts
 }
 
+private typealias fsc = FireStoreCollections
+
 enum SortingCriteria: String {
     case fromNewestToOldest = "dateCreated"
     var shouldSortDescending: Bool {
@@ -29,9 +31,11 @@ class FirestoreService {
     static let manager = FirestoreService()
     private let db = Firestore.firestore()
     
+    //MARK: USERS
     func createAppUser(user: AppUser, completion: @escaping (Result<(), Error>) -> ()) {
         var fields = user.fieldsDict
         fields["dateCreated"] = Date()
+        
         db.collection(FireStoreCollections.users.rawValue).document(user.uid).setData(fields) { (error) in
             if let error = error {
                 completion(.failure(error))
@@ -75,6 +79,18 @@ class FirestoreService {
                 })
                 completion(.success(users ?? []))
             }
+        }
+    }
+    
+    
+    //MARK: POSTS
+    func createPost(newItem: Item, completion: @escaping (Result<(), Error>) -> ()) {
+        var fields = newItem.fieldsDict
+        fields["dateCreated"] = Date()
+        
+        db.collection(fsc.posts.rawValue).addDocument(data: fields) { (error) in
+            if let error = error { completion(.failure(error))
+            } else { completion(.success(())) }
         }
     }
     
