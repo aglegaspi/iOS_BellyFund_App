@@ -30,7 +30,6 @@
 		ECBE4C9E2370CD7D00F805C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECBE4C9C2370CD7D00F805C1 /* LaunchScreen.storyboard */; };
 		ECBE4CA92370CD7D00F805C1 /* BellyFundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE4CA82370CD7D00F805C1 /* BellyFundTests.swift */; };
 		ECBE4CB72371DD9100F805C1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE4CB62371DD9100F805C1 /* LoginVC.swift */; };
-		ECBE4CB923720BB400F805C1 /* TO-DO-LIST in Resources */ = {isa = PBXBuildFile; fileRef = ECBE4CB823720BB400F805C1 /* TO-DO-LIST */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +74,6 @@
 		ECBE4CAA2370CD7D00F805C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECBE4CB52371C70B00F805C1 /* BellyFund.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BellyFund.entitlements; sourceTree = "<group>"; };
 		ECBE4CB62371DD9100F805C1 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		ECBE4CB823720BB400F805C1 /* TO-DO-LIST */ = {isa = PBXFileReference; lastKnownFileType = text; path = "TO-DO-LIST"; sourceTree = "<group>"; };
 		FDF4E622FAB041B7F445087F /* Pods-BellyFund.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BellyFund.debug.xcconfig"; path = "Target Support Files/Pods-BellyFund/Pods-BellyFund.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,7 +178,6 @@
 		ECBE4C852370CD7A00F805C1 = {
 			isa = PBXGroup;
 			children = (
-				ECBE4CB823720BB400F805C1 /* TO-DO-LIST */,
 				ECBE4C902370CD7A00F805C1 /* BellyFund */,
 				ECBE4CA72370CD7D00F805C1 /* BellyFundTests */,
 				ECBE4C8F2370CD7A00F805C1 /* Products */,
@@ -310,7 +307,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECBE4CB923720BB400F805C1 /* TO-DO-LIST in Resources */,
 				ECBA8CA423833CEB0045782C /* GoogleService-Info.plist in Resources */,
 				ECBE4C9E2370CD7D00F805C1 /* LaunchScreen.storyboard in Resources */,
 				ECBE4C9B2370CD7D00F805C1 /* Assets.xcassets in Resources */,

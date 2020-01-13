@@ -5,7 +5,6 @@
 //  Created by Alex 6.1 on 12/16/19.
 //  Copyright © 2019 aglegaspi. All rights reserved.
 //
-
 import UIKit
 import FirebaseAuth
 import Photos
@@ -27,9 +26,16 @@ class PostVC: UIViewController {
         return textField
     }()
     
+    var itemImage: UIImageView = {
+        var image = UIImageView()
+        image.image = UIImage(named: "camera")
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
     var descriptionOfItemTextView: UITextView = {
         let textView = UITextView()
-        textView.placeholder = "How are you?"
+        textView.placeholder = "Description of Item"
         textView.isEditable = true
         textView.autocorrectionType = .yes
         textView.spellCheckingType = .yes
@@ -65,6 +71,7 @@ class PostVC: UIViewController {
     
     private func loadConstraints() {
         constrainNameOfItem()
+        constrainImage()
         constrainDescriptionOfItem()
         constrainIngredientsOfItem()
         constrainSubmitButton()
@@ -80,11 +87,22 @@ class PostVC: UIViewController {
         ])
     }
     
+    private func constrainImage() {
+        view.addSubview(itemImage)
+        itemImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            itemImage.topAnchor.constraint(equalTo: nameOfItemTextField.bottomAnchor, constant: 10),
+            itemImage.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            itemImage.widthAnchor.constraint(equalToConstant: view.frame.maxX / 1.5),
+            itemImage.heightAnchor.constraint(equalToConstant: 200)
+        ])
+    }
+    
     private func constrainDescriptionOfItem() {
         view.addSubview(descriptionOfItemTextView)
         descriptionOfItemTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            descriptionOfItemTextView.topAnchor.constraint(equalTo: nameOfItemTextField.bottomAnchor, constant: 10),
+            descriptionOfItemTextView.topAnchor.constraint(equalTo: itemImage.bottomAnchor, constant: 10),
             descriptionOfItemTextView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             descriptionOfItemTextView.widthAnchor.constraint(equalToConstant: view.frame.maxX / 1.5),
             descriptionOfItemTextView.heightAnchor.constraint(equalToConstant: 100)
@@ -141,12 +159,7 @@ extension PostVC: UITextFieldDelegate {
     }
 }
 
-extension PostVC: UITextViewDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("should clear")
-        self.descriptionOfItemTextView.text = ""
-    }
-}
+extension PostVC: UITextViewDelegate {}
 
 extension PostVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
