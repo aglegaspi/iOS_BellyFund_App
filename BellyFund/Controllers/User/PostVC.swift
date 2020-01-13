@@ -33,6 +33,12 @@ class PostVC: UIViewController {
         return image
     }()
     
+    var imageButton: UIButton = {
+        var button = UIButton()
+        button.addTarget(self, action: #selector(imageButtonPressed), for: .touchDown)
+        return button
+    }()
+    
     var descriptionOfItemTextView: UITextView = {
         let textView = UITextView()
         textView.placeholder = "Description of Item"
@@ -72,6 +78,7 @@ class PostVC: UIViewController {
     private func loadConstraints() {
         constrainNameOfItem()
         constrainImage()
+        constrainImageButton()
         constrainDescriptionOfItem()
         constrainIngredientsOfItem()
         constrainSubmitButton()
@@ -95,6 +102,17 @@ class PostVC: UIViewController {
             itemImage.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             itemImage.widthAnchor.constraint(equalToConstant: view.frame.maxX / 1.5),
             itemImage.heightAnchor.constraint(equalToConstant: 200)
+        ])
+    }
+    
+    private func constrainImageButton() {
+        view.addSubview(imageButton)
+        imageButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageButton.topAnchor.constraint(equalTo: nameOfItemTextField.bottomAnchor, constant: 10),
+            imageButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            imageButton.widthAnchor.constraint(equalToConstant: view.frame.maxX / 1.5),
+            imageButton.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
     
@@ -131,8 +149,33 @@ class PostVC: UIViewController {
         ])
     }
     
+    private func photoPicker() {
+        DispatchQueue.main.async{
+            let imagePickerViewController = UIImagePickerController()
+            imagePickerViewController.delegate = self
+            imagePickerViewController.sourceType = .photoLibrary
+            imagePickerViewController.allowsEditing = true
+            imagePickerViewController.mediaTypes = ["public.image", "public.movie"]
+            self.present(imagePickerViewController, animated: true, completion: nil)
+        }
+    }
+    
     @objc func submitButtonClicked() {
         self.present(ShowAlert.prompt(with: "To-Do", and: "add functionality to save to Firebase"), animated: true, completion: nil)
+    }
+    
+    @objc func imageButtonPressed() {
+        switch PHPhotoLibrary.authorizationStatus() {
+        case .notDetermined, .denied, .restricted:
+            PHPhotoLibrary.requestAuthorization({[weak self] status in
+                switch status {
+                case .authorized: self?.photoPicker()
+                case .denied: print("Denied photo library permissions")
+                default: print("No usable status")
+                }
+            })
+        default: photoPicker()
+        }
     }
 }
 
@@ -164,12 +207,13 @@ extension PostVC: UITextViewDelegate {}
 extension PostVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         guard let image = info[.editedImage] as? UIImage else {
             present(ShowAlert.prompt(with: "Error", and: "Couldn't get image"), animated: true, completion: nil)
             return
         }
-        //TODO: ADD IMAGE VIEW
-        //self.image = image
+        
+        self.itemImage.image = image
         
         guard let imageData = image.jpegData(compressionQuality: 0.4) else {
             present(ShowAlert.prompt(with: "Error", and: "Could not compress image"), animated: true, completion: nil)
