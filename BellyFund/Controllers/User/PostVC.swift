@@ -218,15 +218,17 @@ class PostVC: UIViewController {
     
     
     @objc func submitButtonClicked() {
+        print("submit pressed")
         guard let user = FirebaseAuthService.manager.currentUser else {return}
-        guard let photoURL = imageURL else {return}
+        print(user.uid)
+        //guard let photoURL = imageURL else {return}
         guard let nameOfItem = nameOfItemTextField.text else { return }
         guard let description = descriptionOfItemTextView.text else { return }
         guard let ingredients = ingredientsOfItemTextView.text else { return }
         guard var price = priceTextField.text else { return }
         
         let newItem = Item(name: nameOfItem,
-                           photoURL: photoURL.description,
+                           photoURL: self.imageToUpload!.description,
                            description: description,
                            userName: "TO-DO",
                            userID: user.uid,
@@ -238,39 +240,54 @@ class PostVC: UIViewController {
                            endDate: Date(),
                            contributors: [""])
         
-//        FirestoreService.manager.createPost(newItem: newItem) { (result) in
-//            <#code#>
-//        }
+        FirestoreService.manager.createPost(newItem: newItem) { (result) in
+            switch result {
+            case .failure(let error):
+                self.present(ShowAlert.prompt(with: "Could Not Create Post", and: "\(error)"), animated: true, completion: nil)
+                
+            case .success:
+                FirebaseStorageService.uploadManager.storeImage(image: self.imageToUpload!) { (result) in
+                    switch result {
+                    case .failure(let error):
+                        self.present(ShowAlert.prompt(with: "Could Not Upload Image", and: "\(error)"), animated: true, completion: nil)
+                    case .success:
+                        self.present(ShowAlert.prompt(with: "Success", and: "Your item was successfully added"), animated: true, completion: nil)
+                    }
+                }
+                
+                
+            }
+            
+            //        FirestoreService.manager.createPost(post: Post(photoUrl: photoUrl.absoluteString, creatorID: user.uid)) { (result) in
+            //            self.uploadButton.isEnabled = false
+            //
+            //            switch result {
+            //
+            //            case .failure(let error):
+            //                self.present(ShowAlert.showAlert(with: "Could not make post", and: "Error: \(error)"), animated: true, completion: nil)
+            //
+            //            case .success:
+            //                self.present(ShowAlert.showAlert(with: "Success", and: "Post created"), animated: true, completion: nil)
+            //                self.uploadImageView.image = UIImage(named: "uploadImage")
+            //                self.uploadButton.isEnabled = true
+            //                self.view.layoutSubviews()
+            //            }
+            //        }
+            
+            
+            //TO-DO: ADD FIREBASE STORAGE SERVICE
+            //FirebaseStorageService.profileManager.storeImage(image: imageData, completion: { [weak self] (result) in
+            //switch result{
+            //case .success(let url): return (self?.imageURL = url)!
+            //case .failure(let error): print(error)
+            //}
+            //})
+        }
         
-//        FirestoreService.manager.createPost(post: Post(photoUrl: photoUrl.absoluteString, creatorID: user.uid)) { (result) in
-//            self.uploadButton.isEnabled = false
-//
-//            switch result {
-//
-//            case .failure(let error):
-//                self.present(ShowAlert.showAlert(with: "Could not make post", and: "Error: \(error)"), animated: true, completion: nil)
-//
-//            case .success:
-//                self.present(ShowAlert.showAlert(with: "Success", and: "Post created"), animated: true, completion: nil)
-//                self.uploadImageView.image = UIImage(named: "uploadImage")
-//                self.uploadButton.isEnabled = true
-//                self.view.layoutSubviews()
-//            }
-//        }
         
-        
-        //TO-DO: ADD FIREBASE STORAGE SERVICE
-        //FirebaseStorageService.profileManager.storeImage(image: imageData, completion: { [weak self] (result) in
-        //switch result{
-        //case .success(let url): return (self?.imageURL = url)!
-        //case .failure(let error): print(error)
-        //}
-        //})
     }
     
-    
 }
-
 
 extension PostVC: UITextFieldDelegate {}
 
