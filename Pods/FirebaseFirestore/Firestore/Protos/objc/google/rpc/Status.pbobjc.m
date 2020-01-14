@@ -30,7 +30,7 @@
 #endif
 
 #if GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS
-#import <protobuf/Any.pbobjc.h>
+ #import <Protobuf/Any.pbobjc.h>
 #else
  #import "Any.pbobjc.h"
 #endif

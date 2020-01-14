@@ -14,6 +14,7 @@ import UITextView_Placeholder
 class PostVC: UIViewController {
     
     var imageToUpload: Data?
+    var imageURL: URL? = nil
     
     var nameOfItemTextField: UITextField = {
         let textField = UITextField()
@@ -24,7 +25,6 @@ class PostVC: UIViewController {
         textField.textColor = .black
         textField.font?.withSize(30)
         textField.borderStyle = .roundedRect
-        
         return textField
     }()
     
@@ -59,6 +59,17 @@ class PostVC: UIViewController {
         return textView
     }()
     
+    var priceTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Price of Item"
+        textField.textAlignment = .left
+        textField.backgroundColor = .white
+        textField.textColor = .black
+        textField.font?.withSize(30)
+        textField.borderStyle = .roundedRect
+        return textField
+    }()
+    
     var submitButton: UIButton = {
         var button = UIButton()
         button.setTitle("Submit", for: .normal)
@@ -71,11 +82,26 @@ class PostVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.947, green: 0.586, blue: 0.798, alpha: 1.0)
-        loadConstraints()
+        loadSubviews()
         nameOfItemTextField.delegate = self
         descriptionOfItemTextView.delegate = self
+        priceTextField.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        loadConstraints()
+    }
+    
+    private func loadSubviews() {
+        view.addSubview(nameOfItemTextField)
+        view.addSubview(itemImage)
+        view.addSubview(imageButton)
+        view.addSubview(descriptionOfItemTextView)
+        view.addSubview(ingredientsOfItemTextView)
+        view.addSubview(priceTextField)
+        view.addSubview(submitButton)
+    }
     
     private func loadConstraints() {
         constrainNameOfItem()
@@ -83,11 +109,12 @@ class PostVC: UIViewController {
         constrainImageButton()
         constrainDescriptionOfItem()
         constrainIngredientsOfItem()
+        constrainPriceOfItem()
         constrainSubmitButton()
     }
     
     private func constrainNameOfItem() {
-        view.addSubview(nameOfItemTextField)
+        
         nameOfItemTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             nameOfItemTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
@@ -97,7 +124,7 @@ class PostVC: UIViewController {
     }
     
     private func constrainImage() {
-        view.addSubview(itemImage)
+        
         itemImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             itemImage.topAnchor.constraint(equalTo: nameOfItemTextField.bottomAnchor, constant: 10),
@@ -108,7 +135,7 @@ class PostVC: UIViewController {
     }
     
     private func constrainImageButton() {
-        view.addSubview(imageButton)
+        
         imageButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imageButton.topAnchor.constraint(equalTo: nameOfItemTextField.bottomAnchor, constant: 10),
@@ -119,7 +146,7 @@ class PostVC: UIViewController {
     }
     
     private func constrainDescriptionOfItem() {
-        view.addSubview(descriptionOfItemTextView)
+        
         descriptionOfItemTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             descriptionOfItemTextView.topAnchor.constraint(equalTo: itemImage.bottomAnchor, constant: 10),
@@ -130,7 +157,7 @@ class PostVC: UIViewController {
     }
     
     private func constrainIngredientsOfItem() {
-        view.addSubview(ingredientsOfItemTextView)
+        
         ingredientsOfItemTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             ingredientsOfItemTextView.topAnchor.constraint(equalTo: descriptionOfItemTextView.bottomAnchor, constant: 10),
@@ -140,16 +167,26 @@ class PostVC: UIViewController {
         ])
     }
     
+    private func constrainPriceOfItem() {
+        priceTextField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            priceTextField.topAnchor.constraint(equalTo: ingredientsOfItemTextView.bottomAnchor, constant: 10),
+            priceTextField.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            priceTextField.widthAnchor.constraint(equalToConstant: view.frame.maxX / 1.5)
+        ])
+    }
+    
     private func constrainSubmitButton() {
-        view.addSubview(submitButton)
+        
         submitButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            submitButton.topAnchor.constraint(equalTo: ingredientsOfItemTextView.bottomAnchor, constant: 10),
+            submitButton.topAnchor.constraint(equalTo: priceTextField.bottomAnchor, constant: 10),
             submitButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             submitButton.widthAnchor.constraint(equalToConstant: view.frame.maxX / 1.5),
             submitButton.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
+    
     
     private func photoPicker() {
         DispatchQueue.main.async{
@@ -162,8 +199,7 @@ class PostVC: UIViewController {
         }
     }
     
-    
-    
+    //MARK: OBJC FUNCTIONS
     @objc func imageButtonPressed() {
         switch PHPhotoLibrary.authorizationStatus() {
         case .notDetermined, .denied, .restricted:
@@ -182,14 +218,53 @@ class PostVC: UIViewController {
     
     
     @objc func submitButtonClicked() {
-        self.present(ShowAlert.prompt(with: "To-Do", and: "add functionality to save to Firebase"), animated: true, completion: nil)
+        guard let user = FirebaseAuthService.manager.currentUser else {return}
+        guard let photoURL = imageURL else {return}
+        guard let nameOfItem = nameOfItemTextField.text else { return }
+        guard let description = descriptionOfItemTextView.text else { return }
+        guard let ingredients = ingredientsOfItemTextView.text else { return }
+        guard var price = priceTextField.text else { return }
+        
+        let newItem = Item(name: nameOfItem,
+                           photoURL: photoURL.description,
+                           description: description,
+                           userName: "TO-DO",
+                           userID: user.uid,
+                           ingredients: ingredients,
+                           price: Double(price)!,
+                           contributions: 0,
+                           priceForEachContributor: 5.00,
+                           dateCreated: Date(),
+                           endDate: Date(),
+                           contributors: [""])
+        
+//        FirestoreService.manager.createPost(newItem: newItem) { (result) in
+//            <#code#>
+//        }
+        
+//        FirestoreService.manager.createPost(post: Post(photoUrl: photoUrl.absoluteString, creatorID: user.uid)) { (result) in
+//            self.uploadButton.isEnabled = false
+//
+//            switch result {
+//
+//            case .failure(let error):
+//                self.present(ShowAlert.showAlert(with: "Could not make post", and: "Error: \(error)"), animated: true, completion: nil)
+//
+//            case .success:
+//                self.present(ShowAlert.showAlert(with: "Success", and: "Post created"), animated: true, completion: nil)
+//                self.uploadImageView.image = UIImage(named: "uploadImage")
+//                self.uploadButton.isEnabled = true
+//                self.view.layoutSubviews()
+//            }
+//        }
+        
         
         //TO-DO: ADD FIREBASE STORAGE SERVICE
         //FirebaseStorageService.profileManager.storeImage(image: imageData, completion: { [weak self] (result) in
-            //switch result{
-            //case .success(let url): return (self?.imageURL = url)!
-            //case .failure(let error): print(error)
-            //}
+        //switch result{
+        //case .success(let url): return (self?.imageURL = url)!
+        //case .failure(let error): print(error)
+        //}
         //})
     }
     
@@ -197,27 +272,7 @@ class PostVC: UIViewController {
 }
 
 
-/*
- let name: String?
- let photoURL: String?
- let description: String?
- let userName: String?
- let userID: String?
- let ingredients: String?
- let price: Double?
- let contributions: Int?
- let priceForEachContributor: Double?
- let itemID: String?
- let dateCreated: Date?
- let endDate: Date?
- let contributors: [String]?
- */
-
-extension PostVC: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-    }
-}
+extension PostVC: UITextFieldDelegate {}
 
 extension PostVC: UITextViewDelegate {}
 
