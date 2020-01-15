@@ -225,38 +225,42 @@ class PostVC: UIViewController {
         guard let nameOfItem = nameOfItemTextField.text else { return }
         guard let description = descriptionOfItemTextView.text else { return }
         guard let ingredients = ingredientsOfItemTextView.text else { return }
-        guard var price = priceTextField.text else { return }
+        guard let price = priceTextField.text else { return }
         
-        let newItem = Item(name: nameOfItem,
-                           photoURL: self.imageToUpload!.description,
-                           description: description,
-                           userName: "TO-DO",
-                           userID: user.uid,
-                           ingredients: ingredients,
-                           price: Double(price)!,
-                           contributions: 0,
-                           priceForEachContributor: 5.00,
-                           dateCreated: Date(),
-                           endDate: Date(),
-                           contributors: [""])
-        
-        FirestoreService.manager.createPost(newItem: newItem) { (result) in
+        FirebaseStorageService.uploadManager.storeImage(image: self.imageToUpload!) { (result) in
             switch result {
             case .failure(let error):
-                self.present(ShowAlert.prompt(with: "Could Not Create Post", and: "\(error)"), animated: true, completion: nil)
+                self.present(ShowAlert.prompt(with: "Could Not Upload Image", and: "\(error)"), animated: true, completion: nil)
+            case .success(let url):
                 
-            case .success:
-                FirebaseStorageService.uploadManager.storeImage(image: self.imageToUpload!) { (result) in
+                let newItem = Item(name: nameOfItem,
+                                   photoURL: url.absoluteString,
+                                   description: description,
+                                   userName: "TO-DO",
+                                   userID: user.uid,
+                                   ingredients: ingredients,
+                                   price: Double(price)!,
+                                   contributions: 0,
+                                   priceForEachContributor: 5.00,
+                                   dateCreated: Date(),
+                                   endDate: Date().addingTimeInterval(<#T##timeInterval: TimeInterval##TimeInterval#>),
+                                   contributors: [""])
+                
+                FirestoreService.manager.createPost(newItem: newItem) { (result) in
                     switch result {
                     case .failure(let error):
-                        self.present(ShowAlert.prompt(with: "Could Not Upload Image", and: "\(error)"), animated: true, completion: nil)
+                        self.present(ShowAlert.prompt(with: "Could Not Create Post", and: "\(error)"), animated: true, completion: nil)
+                        
                     case .success:
                         self.present(ShowAlert.prompt(with: "Success", and: "Your item was successfully added"), animated: true, completion: nil)
+                        
                     }
+                    
+                    
                 }
-                
-                
             }
+            
+            
             
             //        FirestoreService.manager.createPost(post: Post(photoUrl: photoUrl.absoluteString, creatorID: user.uid)) { (result) in
             //            self.uploadButton.isEnabled = false
