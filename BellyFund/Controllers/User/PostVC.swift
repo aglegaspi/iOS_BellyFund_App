@@ -234,9 +234,8 @@ class PostVC: UIViewController {
             case .success(let url):
                 
                 let daysToAdd = 7
-                var newDate = Calendar.current.date(byAdding: .day, value: daysToAdd, to: Date())
-                //newDate = Calendar.current.date(byAdding: .day, value: daysToAdd, to: newDate!)
-                print(newDate)
+                let newDate = Calendar.current.date(byAdding: .day, value: daysToAdd, to: Date())
+                print(newDate!)
                 
                 let newItem = Item(name: nameOfItem,
                                    photoURL: url.absoluteString,

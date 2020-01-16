@@ -85,10 +85,12 @@ class FirestoreService {
     
     //MARK: POSTS
     func createPost(newItem: Item, completion: @escaping (Result<(), Error>) -> ()) {
+        let postID = UUID().uuidString
         var fields = newItem.fieldsDict
         fields["dateCreated"] = Date()
+        fields["postID"] = postID
         
-        db.collection(fsc.posts.rawValue).addDocument(data: fields) { (error) in
+        db.collection(fsc.posts.rawValue).document(postID).setData(fields) { (error) in
             if let error = error { completion(.failure(error))
             } else { completion(.success(())) }
         }
