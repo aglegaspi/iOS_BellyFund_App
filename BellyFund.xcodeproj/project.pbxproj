@@ -118,14 +118,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EC17D60423A99C71000C0426 /* FIrebase */ = {
+		EC17D60423A99C71000C0426 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
 				ECBA8CA7238353220045782C /* FirebaseAuthService.swift */,
 				ECBA8CAC2385EE020045782C /* FirestoreService.swift */,
 				EC9B943623CCFAF600433EB9 /* FirestoreStorageService.swift */,
 			);
-			path = FIrebase;
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		EC17D60723A99CFB000C0426 /* Networking */ = {
@@ -204,7 +204,7 @@
 				ECBE4C932370CD7A00F805C1 /* SceneDelegate.swift */,
 				EC17D60723A99CFB000C0426 /* Networking */,
 				ECBA8CAB2385EC2C0045782C /* Controllers */,
-				EC17D60423A99C71000C0426 /* FIrebase */,
+				EC17D60423A99C71000C0426 /* Firebase */,
 				EC320E2523A7E14800AA10B6 /* Models */,
 				ECBA8CA52383470B0045782C /* Validations.swift */,
 				ECBE4C9A2370CD7D00F805C1 /* Assets.xcassets */,

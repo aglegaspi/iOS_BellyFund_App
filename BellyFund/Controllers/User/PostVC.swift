@@ -233,6 +233,11 @@ class PostVC: UIViewController {
                 self.present(ShowAlert.prompt(with: "Could Not Upload Image", and: "\(error)"), animated: true, completion: nil)
             case .success(let url):
                 
+                let daysToAdd = 7
+                var newDate = Calendar.current.date(byAdding: .day, value: daysToAdd, to: Date())
+                //newDate = Calendar.current.date(byAdding: .day, value: daysToAdd, to: newDate!)
+                print(newDate)
+                
                 let newItem = Item(name: nameOfItem,
                                    photoURL: url.absoluteString,
                                    description: description,
@@ -243,7 +248,7 @@ class PostVC: UIViewController {
                                    contributions: 0,
                                    priceForEachContributor: 5.00,
                                    dateCreated: Date(),
-                                   endDate: Date().addingTimeInterval(<#T##timeInterval: TimeInterval##TimeInterval#>),
+                                   endDate: newDate,
                                    contributors: [""])
                 
                 FirestoreService.manager.createPost(newItem: newItem) { (result) in
