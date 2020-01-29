@@ -16,7 +16,9 @@ class PostVC: UIViewController {
     var imageToUpload: Data?
     var imageURL: URL? = nil
     
-    var nameOfItemTextField: UITextField = {
+    
+    
+    lazy var nameOfItemTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Name of Item"
         textField.autocorrectionType = .no
@@ -28,20 +30,20 @@ class PostVC: UIViewController {
         return textField
     }()
     
-    var itemImage: UIImageView = {
+    lazy var itemImage: UIImageView = {
         var image = UIImageView()
         image.image = UIImage(named: "camera")
         image.contentMode = .scaleAspectFit
         return image
     }()
     
-    var imageButton: UIButton = {
+    lazy var imageButton: UIButton = {
         var button = UIButton()
         button.addTarget(self, action: #selector(imageButtonPressed), for: .touchDown)
         return button
     }()
     
-    var descriptionOfItemTextView: UITextView = {
+    lazy var descriptionOfItemTextView: UITextView = {
         let textView = UITextView()
         textView.placeholder = "Description of Item"
         textView.isEditable = true
@@ -50,7 +52,7 @@ class PostVC: UIViewController {
         return textView
     }()
     
-    var ingredientsOfItemTextView: UITextView = {
+    lazy var ingredientsOfItemTextView: UITextView = {
         let textView = UITextView()
         textView.placeholder = "Enter Ingredients Here"
         textView.isEditable = true
@@ -59,7 +61,7 @@ class PostVC: UIViewController {
         return textView
     }()
     
-    var priceTextField: UITextField = {
+    lazy var priceTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Price of Item"
         textField.textAlignment = .left
@@ -70,7 +72,7 @@ class PostVC: UIViewController {
         return textField
     }()
     
-    var submitButton: UIButton = {
+    lazy var submitButton: UIButton = {
         var button = UIButton()
         button.setTitle("Submit", for: .normal)
         button.setTitleColor(.black, for: .normal)
@@ -86,6 +88,9 @@ class PostVC: UIViewController {
         nameOfItemTextField.delegate = self
         descriptionOfItemTextView.delegate = self
         priceTextField.delegate = self
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -199,6 +204,10 @@ class PostVC: UIViewController {
         }
     }
     
+    func dismiss(_ sender:UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
     //MARK: OBJC FUNCTIONS
     @objc func imageButtonPressed() {
         switch PHPhotoLibrary.authorizationStatus() {
@@ -297,13 +306,31 @@ class PostVC: UIViewController {
     
 }
 
-extension PostVC: UITextFieldDelegate {}
+extension PostVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+    }
+}
 
-extension PostVC: UITextViewDelegate {}
+extension PostVC: UITextViewDelegate {
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        textView.resignFirstResponder()
+    }
+}
+
+
 
 extension PostVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        resignFirstResponder()
         
         guard let image = info[.editedImage] as? UIImage else {
             present(ShowAlert.prompt(with: "Error", and: "Couldn't get image"), animated: true, completion: nil)
